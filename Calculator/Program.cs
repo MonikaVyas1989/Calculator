@@ -21,28 +21,26 @@ namespace Calculator
             {
                 try
                 {
-                    Console.WriteLine("Enter number 1..");
-                    var num1 = double.Parse(Console.ReadLine());
-
-                    Console.WriteLine("Enter number 2..");
-                    var num2 = double.Parse(Console.ReadLine());
 
                     Console.WriteLine("Please enter number from Menu which math operation do you want..");
                     var p = int.Parse(Console.ReadLine());
 
+                    double [] num = UserInput(p);
+
+                    
                     switch (p)
                     {
                         case 1:
-                            Addition(num1, num2);
+                            Addition(num[0], num[1]);
                             break;
                         case 2:
-                            Subtraction(num1, num2);
+                            Subtraction(num[0], num[1]);
                             break;
                         case 3:
-                            Multiplication(num1, num2);
+                            Multiplication(num[0], num[1]);
                             break;
                         case 4:
-                            Division(num1, num2);
+                            Division(num[0], num[1]);
                             break;
                         case 5:
                             running = false;
@@ -54,18 +52,40 @@ namespace Calculator
 
 
                     }
-                    Console.Clear();
+                   
 
 
                 }
-
+                     
                 catch
                 {
                     Console.WriteLine("The value you enterd is not valid");
 
                 }
+                
 
             }
+        }
+        static double[] UserInput(int p)
+        {
+            if (p >= 1 && p <= 4)
+            {
+                Console.WriteLine("Enter number 1..");
+                var num1 = double.Parse(Console.ReadLine());
+
+                Console.WriteLine("Enter number 2..");
+                var num2 = double.Parse(Console.ReadLine());
+
+
+                return new[] { num1, num2 };
+            }
+            else
+            {
+                
+                return new[] { 0.0, 0.0 };
+            }
+
+            
         }
         static void Addition(double n1, double n2)
         {
