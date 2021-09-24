@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Calculator
+namespace Calculator_Uppgift
 {
-    class Program  
+    class Program
     {
         static void Main(string[] args)
         {
@@ -15,110 +15,96 @@ namespace Calculator
             Console.WriteLine("For exit from console Enter number 5");
             Console.WriteLine("**************************************");
 
+
+
             while (running)
             {
-                Console.WriteLine("Please enter number from Menu which math operation do you want..");
-                int p = Convert.ToInt32(Console.ReadLine());
-                switch (p)
+                try
                 {
-                    case 1:
+                    Console.WriteLine("Enter number 1..");
+                    var num1 = double.Parse(Console.ReadLine());
 
-                        Addition();
-                        break;
-                    case 2:
-                        Subtraction();
-                        break;
-                    case 3:
-                        Multiplication();
-                        break;
-                    case 4:
-                        Division();
-                        break;
-                    case 5:
-                        running = false;
-                        break;
+                    Console.WriteLine("Enter number 2..");
+                    var num2 = double.Parse(Console.ReadLine());
 
-                    default:
-                        Console.WriteLine("It is an invalid number please choose number from Menu");
-                        break;
+                    Console.WriteLine("Please enter number from Menu which math operation do you want..");
+                    var p = int.Parse(Console.ReadLine());
+
+                    switch (p)
+                    {
+                        case 1:
+                            Addition(num1, num2);
+                            break;
+                        case 2:
+                            Subtraction(num1, num2);
+                            break;
+                        case 3:
+                            Multiplication(num1, num2);
+                            break;
+                        case 4:
+                            Division(num1, num2);
+                            break;
+                        case 5:
+                            running = false;
+                            break;
+
+                        default:
+                            Console.WriteLine("It is an invalid number please choose number from Menu");
+                            break;
+
+
+                    }
+                    Console.Clear();
 
 
                 }
 
+                catch
+                {
+                    Console.WriteLine("The value you enterd is not valid");
+
+                }
 
             }
         }
-            static void Addition()
+        static void Addition(double n1, double n2)
+        {
+            double sum = 0;
+            sum = n1 + n2;
+            Console.WriteLine("Addition::" + sum);
+
+        }
+        static void Subtraction(double n1, double n2)
+        {
+
+            double sub = n1 - n2;
+            Console.WriteLine("Subtraction::" + sub);
+
+        }
+        static void Multiplication(double n1, double n2)
+        {
+
+            double mul = n1 * n2;
+            Console.WriteLine("Multiplication::" + mul);
+
+        }
+        static void Division(double n1, double n2)
+        {
+
+            double div = n1 / n2;
+            if (n2 == 0)
             {
-                int i, j;
-                Console.WriteLine("Enter First value:");
-                i = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Enter Second value:");
-                j = Convert.ToInt32(Console.ReadLine());
-
-                int add = i + j;
-                Console.WriteLine("Addition::" + add);
-
-                
+                Console.WriteLine("Number can not be divided by 0");
             }
-
-            static void Subtraction()
+            else
             {
-                int a, b;
-                Console.WriteLine("Enter First value:");
-                a = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Enter Second value:");
-                b = Convert.ToInt32(Console.ReadLine());
-
-                int sub = a - b;
-                Console.WriteLine("Substraction::" + sub);
-
-
+                Console.WriteLine("Division::" + div);
             }
-            static void Multiplication()
-            {
-                int r, k;
-                Console.WriteLine("Enter First value:");
-                r = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Enter Second value:");
-                k = Convert.ToInt32(Console.ReadLine());
-
-                Console.WriteLine("Multiplication::" + r*k);
+        }
 
 
-            }
-            static void Division()
-            {
-                int c, d;
-                Console.WriteLine("Enter First value:");
-                c = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Enter Second value:");
-                d = Convert.ToInt32(Console.ReadLine());
-
-                if (d == 0)
-                {
-                    Console.WriteLine("Value cannot be devide by 0....");
-
-                    Console.WriteLine("Enter First value:");
-                    c = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Enter Second value:");
-                    d = Convert.ToInt32(Console.ReadLine());
-
-                   
-                    Console.WriteLine("Division::" + c/d);
 
 
-                }
-                else
-                {
-                   
-                    Console.WriteLine("Division::" + c/d);
-                }
 
-            }
-
-            
-
-        
     }
 }
