@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Calculator_Uppgift
+namespace Calculator
 {
     class Program
     {
