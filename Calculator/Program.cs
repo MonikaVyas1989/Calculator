@@ -27,7 +27,7 @@ namespace Calculator
 
                     double [] num = UserInput(p);
 
-                    
+                    //Switch is used to give choice for User what operation to be done...
                     switch (p)
                     {
                         case 1:
